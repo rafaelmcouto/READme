@@ -1,7 +1,5 @@
-# Terraform para criar:
-# VPC, Internet Gateway, SubNets Pubs e Privs, Route Table e Route Table Association
-## This is an <h2> tag
-###### This is an <h6> tag
+# Terraform para criar VPC
+## VPC, Internet Gateway, SubNets Pubs e Privs, Route Table e Route Table Association <h2>
 
 *This text will be italic*
 _This will also be italic_
