@@ -1,5 +1,13 @@
-# Terraform para criar VPC
-## VPC, Internet Gateway, SubNets Pubs e Privs, Route Table e Route Table Association <h2>
+## Terraform para criar VPC
+#### Este módulo faz a criação de:
+* 1 VPC
+* 1 Internet Gateway
+* 2 SubNets Pubs
+* 2 SubNets Privs
+* 1 Route Table
+* 1 Route Table Association
+
+
 
 *This text will be italic*
 _This will also be italic_
