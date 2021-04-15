@@ -38,11 +38,3 @@ variable service {
   description = "The name of AWS resource was created"
 }
 
-Account                 Transit
-createdBy               Jenkins / User
-Environment             Production
-IaC                     True / False
-Name                    alb-eks-data
-Project                 Sites
-Product                 Chat
-Service                 ALB
