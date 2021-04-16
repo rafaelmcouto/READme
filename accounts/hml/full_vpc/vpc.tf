@@ -1,5 +1,5 @@
 module "transit_vpc" {
-  source = "../../../modules/try_this"
+  source = "../../../modules/full_vpc"
 
   account     = "Transit"
   createdBy   = "Rafael Couto"
