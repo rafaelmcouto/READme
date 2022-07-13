@@ -1,0 +1,66 @@
+---
+swagger: "2.0"
+info:
+  description: "swagger-template-api"
+  version: "2021-08-25T14:13:38Z"
+  title: "swagger-template-api"
+host: "swagger-template.api.kenlo.io"
+schemes:
+  - "https"
+paths:
+  /{proxy+}:
+    options:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        type: "mock"
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestTemplates:
+          application/json: '{"statusCode": 200}'
+        passthroughBehavior: "when_no_match"
+    x-amazon-apigateway-any-method:
+      produces:
+        - "application/json"
+      parameters:
+        - name: "proxy"
+          in: "path"
+          required: true
+          type: "string"
+      responses: {}
+      x-amazon-apigateway-integration:
+        type: "http_proxy"
+        httpMethod: "ANY"
+        uri: "http://$${stageVariables.balancer}/{proxy}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        cacheNamespace: "p0zx8o"
+        cacheKeyParameters:
+          - "method.request.path.proxy"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"

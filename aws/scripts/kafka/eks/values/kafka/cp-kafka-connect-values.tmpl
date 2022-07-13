@@ -1,0 +1,18 @@
+## Schema registry JVM Heap Option
+heapOptions: "${HEAP_OPTIONS}"
+
+## You can list load balanced service endpoint, or list of all brokers (which is hard in K8s).  e.g.:
+## bootstrapServers: "PLAINTEXT://dozing-prawn-kafka-headless:9092"
+## Charts uses Kafka Coordinator Master Election: https://docs.confluent.io/current/schema-registry/docs/design.html#kafka-coordinator-master-election
+kafka:
+  bootstrapServers: "${BOOTSTRAP_SERVERS}"
+
+## Node labels for pod assignment
+## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+nodeSelector:
+  node-type: ${NODE_SELECTOR}
+
+## If the Kafka Chart is disabled a URL and port are required to connect
+## e.g. gnoble-panther-cp-schema-registry:8081
+cp-schema-registry:
+  url: "http://cp-schema-registry:8081"
