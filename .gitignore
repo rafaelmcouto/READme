@@ -1,2 +1,28 @@
-# Terraform Files:
-*terraform*
+# Compiled files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+*.terraform.lock.hcl
+
+# logs
+*.log
+
+# Directories
+.terraform/
+.vagrant/
+
+# Backup files
+*.bak
+
+# Ignored Terraform files
+*gitignore*.tf
+
+# Ignored vscode files
+.vscode/
+
+# Setup EKS file
+temp/
+
+# Setup Infracost
+plan.json
+tfplan.binary
